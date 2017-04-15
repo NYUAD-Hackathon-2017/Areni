@@ -38,7 +38,7 @@
         </div>
         <div class="media-body">
           <h3 class="media-heading">
-            <a href="#!/teacher/{{teacher.username}}/session">{{ teacher.subj }} with {{teacher.name}}</a>
+            <a href="#!/teacher/{{teacher.username}}">{{ teacher.subj }} with {{teacher.name}}</a>
             <small>
               <span class="glyphicon glyphicon-star"></span>
               <span class="glyphicon glyphicon-star"></span>
@@ -48,7 +48,7 @@
               <span class="glyphicon glyphicon-star-empty" ng-if="teacher.stars < 5"></span>
             </small>
 
-            <a href="#!/teacher/{{teacher.username}}" class="btn btn-primary btn-lg pull-right">Attend Session</a>
+            <a href="#!/teacher/{{teacher.username}}/session" class="btn btn-primary btn-lg pull-right">Attend Session</a>
 
           </h3>
           <h3>
