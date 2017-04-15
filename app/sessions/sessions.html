@@ -25,8 +25,7 @@
           <div class="alert alert-info">
             <strong>Select A Course:</strong>
           </div>
-          <select id="types" class="form-control" >
-              <option ng-repeat="teacher in teachers" value="{{teacher.subj}}" ng-model="teacher.subj" ng-change="update(teacher.subj)">{{teacher.subj}}</option>
+          <select id="types" class="form-control" ng-model="plsWork" ng-options="teacher.subj for teacher in teachers" ng-change="update()">
         </select>
         </div>
         
@@ -51,7 +50,7 @@
     </div>
   </div>
 
-  <div ng-repeat="teacher in teachers | orderBy:[groupComparator, 'dist']">
+  <div ng-repeat="teacher in teachers | orderBy:[groupComparator, 'dist']" ng-show="plsWork.subj==teacher.subj">
   <div class="panel panel-default">
     <div class="media panel-body">
       <div class="media-left">

@@ -142,18 +142,24 @@ angular.module('Areni.sessions', ['ngRoute'])
   
   $scope.groupComparator = function(item) {
       return $scope.teachers.indexOf(item.dist);
+  console.log("Test1");
+ 
+    console.log($scope.plsWork);
   }
 
-  // $scope.locationChange = function(item){
-  //   return $scope.teachers.indexOf(item.subj);
-  // }
-  // $scope.update = function(item){
-  //   // locationChange($scope.teacher.subj);
-  //   // item = $scope.teacher.subj;
-  //   // return $scope.teachers.indexOf(item.dist);
-  //   item1 = $scope.plsWork;
-  //   return $scope.teachers.indexOf(item.item1);
-  // }
+  $scope.locationChange = function(item){
+    return $scope.teachers.indexOf(item.subj);
+  }
+  $scope.update = function(){
+    // locationChange($scope.teacher.subj);
+    // item = $scope.teacher.subj;
+    // return $scope.teachers.indexOf(item.dist);
+    // item1 = $scope.plsWork;
+    // return $scope.teachers.indexOf(item.item1);
+    // $scope.plsWork = item;
+
+    console.log("Test"+$scope.plsWork.subj);
+  }
 
 }
 
