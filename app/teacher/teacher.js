@@ -13,10 +13,9 @@ angular.module('Areni.teacher', ['ngRoute'])
   });
 }])
 
+
 .controller('teacherCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
   $scope.session = $routeParams.session != null;
-
-  console.log($scope.session, $routeParams.session);
 
   var teachers = [
     {

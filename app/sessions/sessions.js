@@ -67,7 +67,7 @@ angular.module('Areni.sessions', ['ngRoute'])
       "name": "Mathis K.",
       "username": "brownleopard667",
       "img": "https://randomuser.me/api/portraits/men/43.jpg",
-      "subj": "history",
+      "subj": "History",
       "Lat": 47.6171526,
       "Lng": -122.3623953,
       "date": "Thursday",
@@ -94,7 +94,7 @@ angular.module('Areni.sessions', ['ngRoute'])
       "name": "Mila C.",
       "username": "bigrabbit400",
       "img": "https://randomuser.me/api/portraits/women/47.jpg",
-      "subj": "geography",
+      "subj": "Geography",
       "Lat": 47.6171526,
       "Lng": -122.3353294,
       "date": "Saturday",
@@ -105,10 +105,23 @@ angular.module('Areni.sessions', ['ngRoute'])
     }
   ];
 
+  $scope.subjects = [
+    '',
+    'Math',
+    'Geology',
+    'Music',
+    'English',
+    'History',
+    'Geography',
+    'Science'
+  ];
+
+  $scope.subject;
+
+
   var geocoder;
   var map;
 
-  $scope.plsWork = 'subj';
   var infowindow = new google.maps.InfoWindow();
 
   //position.coords.longitude;
@@ -127,7 +140,6 @@ angular.module('Areni.sessions', ['ngRoute'])
         map: map,
         icon: image
       });
-      console.log("Added", marker);
 
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
@@ -160,7 +172,7 @@ angular.module('Areni.sessions', ['ngRoute'])
     // var latLong = new google.maps.LatLng(latitude, longitude);
 
     var mapOptions = {
-      zoom: 10,
+      zoom: 13,
       center: {
         lat: 47.6080031,
         lng: -122.3274234
@@ -177,21 +189,11 @@ angular.module('Areni.sessions', ['ngRoute'])
 
 
   $scope.groupComparator = function(item) {
-      return $scope.teachers.indexOf(item.dist);
+    return $scope.teachers.indexOf(item.dist);
   }
 
   $scope.locationChange = function(item){
     return $scope.teachers.indexOf(item.subj);
-  }
-  $scope.update = function(){
-    // locationChange($scope.teacher.subj);
-    // item = $scope.teacher.subj;
-    // return $scope.teachers.indexOf(item.dist);
-    // item1 = $scope.plsWork;
-    // return $scope.teachers.indexOf(item.item1);
-    // $scope.plsWork = item;
-
-    console.log("Test"+$scope.plsWork.subj);
   }
 
 }

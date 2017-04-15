@@ -8,76 +8,52 @@
     <div id="map"></div>
   </div>
 
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <label for="types">Filter by subject: </label>
+          <select id="types" class="form-control" ng-model="subject" ng-options="item for item in subjects" ng-change="update()"></select>
+        </div>
+      </form>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a>Sort by: Distance <span class="caret"></span></a></li>
+      </ul>
+    </div>
+  </nav>
+
   <div class="row">
-    <!-- DIV filter collapsing must remove "in" to get collapsed default load-->
-    <div class="col-sm-12 col-lg-12 panel-collapse collapse-in" id="collapsingdiv">
-      <div class="row">
-        <!-- Div ciudades -->
-        <div class="col-sm-4" id="divCity">
-          <div class="alert alert-info">
-            <strong id="placeMainAlert">Enter A Location:</strong>
-            <strong id="alertPlace"></strong>
-          </div>
-          <input id="pac-input" class="form-control" type="text">
-        </div>
-        <!-- Div types -->
-        <div class="col-sm-4" id="divTypes">
-          <div class="alert alert-info">
-            <strong>Select A Course:</strong>
-          </div>
-          <select id="types" class="form-control" ng-model="plsWork" ng-options="teacher.subj for teacher in teachers" ng-change="update()">
-        </select>
-        </div>
+  </div>
 
-        <div class="col-sm-4" id="divTypes">
-          <div class="alert alert-info">
-            <strong>Select A Day</strong>
-          </div>
-          <select id="types" class="form-control">
+  <div ng-repeat="teacher in teachers | filter:{subj:subject} | orderBy:[groupComparator, 'dist'] ">
+    <div class="panel panel-default">
 
-                <option ng-repeat="teacher in teachers" value="{{teacher.date}}">{{teacher.date}}</option>
-
-          </select>
+      <div class="media panel-body">
+        <div class="media-left" style="padding-right: 30px;">
+          <img class="media-object img-circle" src="{{teacher.img}}" alt="{{teacher.name}}" width="100">
         </div>
-        <div class="container-fluid">
-          <div  class="row">
-            <div class="col-sm-12" >
-              <button type="button" class="btn btn-primary btn-lg center-block btn-submit btn-form">Search</button>
-            </div>
-          </div>
+        <div class="media-body">
+          <h3 class="media-heading">
+            <a href="#!/teacher/{{teacher.username}}/session">{{ teacher.subj }} with {{teacher.name}}</a>
+            <small>
+              <span class="glyphicon glyphicon-star"></span>
+              <span class="glyphicon glyphicon-star"></span>
+              <span class="glyphicon glyphicon-star"></span>
+              <span class="glyphicon glyphicon-star"></span>
+              <span class="glyphicon glyphicon-star" ng-if="teacher.stars == 5"></span>
+              <span class="glyphicon glyphicon-star-empty" ng-if="teacher.stars < 5"></span>
+            </small>
+
+            <a href="#!/teacher/{{teacher.username}}" class="btn btn-primary btn-lg pull-right">Attend Session</a>
+
+          </h3>
+          <h3>
+            <small><span class="glyphicon glyphicon-calendar"></span> {{ teacher.date }} at {{ teacher.time }}</small><br/>
+            <small><span class="glyphicon glyphicon-map-marker"></span> {{teacher.loc}} ({{teacher.dist}} miles away)</small>
+          </h3>
         </div>
       </div>
     </div>
   </div>
-
-  <div ng-repeat="teacher in teachers | orderBy:[groupComparator, 'dist']" ng-show="plsWork.subj==teacher.subj">
-  <div class="panel panel-default">
-
-    <div class="media panel-body">
-      <div class="media-left" style="padding-right: 30px;">
-        <img class="media-object img-circle" src="{{teacher.img}}" alt="{{teacher.name}}" width="100">
-      </div>
-      <div class="media-body">
-        <h3 class="media-heading">
-          <a href="#!/teacher/{{teacher.username}}">{{ teacher.subj }} with {{teacher.name}}</a>
-          <small>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star" ng-if="teacher.stars == 5"></span>
-            <span class="glyphicon glyphicon-star-empty" ng-if="teacher.stars < 5"></span>
-          </small>
-
-          <a href="#!/teacher/{{teacher.username}}" class="btn btn-primary btn-lg pull-right">Attend Session</a>
-
-        </h3>
-        <h3>
-          <small><span class="glyphicon glyphicon-calendar"></span> {{ teacher.date }} at {{ teacher.time }}</small><br/>
-          <small><span class="glyphicon glyphicon-map-marker"></span> {{teacher.loc}} ({{teacher.dist}} miles away)</small>
-        </h3>
-      </div>
-    </div>
-  </div>
-</div>
 </div>
