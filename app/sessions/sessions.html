@@ -4,7 +4,7 @@
     <h1>Find a session to attend</h1>
   </div>
 
-  <div class="jumbotron">
+  <div class="jumbotron" id="map-wrapper">
     <div id="map"></div>
   </div>
 
@@ -28,7 +28,7 @@
           <select id="types" class="form-control" ng-model="plsWork" ng-options="teacher.subj for teacher in teachers" ng-change="update()">
         </select>
         </div>
-        
+
         <div class="col-sm-4" id="divTypes">
           <div class="alert alert-info">
             <strong>Select A Day</strong>
