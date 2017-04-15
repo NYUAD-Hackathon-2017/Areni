@@ -5,6 +5,7 @@ angular.module('Areni', [
   'ngRoute',
   'Areni.sessions',
   'Areni.login',
+  'Areni.host',
   'Areni.teacher',
   'Areni.welcome',
   'Areni.version'
