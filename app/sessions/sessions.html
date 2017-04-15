@@ -4,7 +4,7 @@
     <h1>Find a session to attend</h1>
   </div>
 
-  <div class="jumbotron">
+  <div class="jumbotron" id="map-wrapper">
     <div id="map"></div>
   </div>
 
@@ -29,7 +29,7 @@
               <option ng-repeat="teacher in teachers" value="{{teacher.subj}}" ng-model="teacher.subj" ng-change="update(teacher.subj)">{{teacher.subj}}</option>
         </select>
         </div>
-        
+
         <div class="col-sm-4" id="divTypes">
           <div class="alert alert-info">
             <strong>Select A Day</strong>

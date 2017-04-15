@@ -14,10 +14,7 @@
             <small>Hi, I'm</small>
             {{ teacher.name }}
           </h2>
-          <h4>I can help with:</h4>
-          <ul ng-repeat="subject in teacher.subj">
-            <li>{{subject}}</li>
-          </ul>
+          <p>I can help with <b>{{teacher.subj}}<b></p>
 
         </div>
 
@@ -44,7 +41,7 @@
     <div class="col-lg-4 col-md-6">
       <div class="panel panel-primary">
         <div class="panel-heading">
-          <h3>Chat with me</h3>
+          <h3>Chat with me <span class="pull-right glyphicon glyphicon-comment"></span></h3>
         </div>
 
         <ul id="messages" class="list-group">
@@ -64,3 +61,4 @@
       </div>
     </div>
   </div>
+</div>

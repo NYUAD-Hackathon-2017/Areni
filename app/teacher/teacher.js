@@ -10,19 +10,92 @@ angular.module('Areni.teacher', ['ngRoute'])
 }])
 
 .controller('teacherCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
-  // TODO: Get name from ID
-  console.log($routeParams.id)
+  var teachers = [
+    {
+      "name": "Alizee A.",
+      "username": "yellowmeercat138",
+      "img": "https://randomuser.me/api/portraits/women/18.jpg",
+      "subj": "Math",
+      "Lat": 47.6138333,
+      "Lng": -122.3263265,
+      "date": "Sunday",
+      "loc": "Tully's Coffee",
+      "dist": 0.3
+    },
+    {
+      "name": "Anni S.",
+      "username": "beautifulpeacock749",
+      "img": "https://randomuser.me/api/portraits/women/61.jpg",
+      "subj": "Geology",
+      "Lat": 47.6093364,
+      "Lng": -122.3280238,
+      "date": "Monday",
+      "loc": "Sugar Bakery & Cafe",
+      "dist": 0.1
+    },
+    {
+      "name": "Eden D.",
+      "username": "tinygoose706",
+      "img": "https://randomuser.me/api/portraits/women/41.jpg",
+      "subj": "Music",
+      "Lat": 47.6093364,
+      "Lng": -122.3345898,
+      "date": "Tuesday",
+      "loc": "Peet's Coffee & Tea",
+      "dist": 0.2
+    },
+    {
+      "name": "Zoe C.",
+      "username": "smallmeercat885",
+      "img": "https://randomuser.me/api/portraits/women/54.jpg",
+      "subj": "English",
+      "Lat": 47.6085471,
+      "Lng": -122.3432501,
+      "date": "Wednesday",
+      "loc": "Chatterbox Cafe",
+      "dist": 0.6
+    },
+    {
+      "name": "Mathis K.",
+      "username": "brownleopard667",
+      "img": "https://randomuser.me/api/portraits/men/43.jpg",
+      "subj": "history",
+      "Lat": 47.6074692,
+      "Lng": -122.3623953,
+      "date": "Thursday",
+      "loc": "Ambrosia Cafe",
+      "dist": 0.9
+    },
+    {
+      "name": "Britney F.",
+      "username": "blackgoose337",
+      "img": "https://randomuser.me/api/portraits/women/42.jpg",
+      "subj": "Geology",
+      "Lat": 47.6019113,
+      "Lng": -122.3314294,
+      "date": "Friday",
+      "loc": "HardWok Cafe",
+      "dist": 1
 
-  $scope.teacher = {
-    "name": "Sara L.",
-    "subj": ["Algebra", "Trigonometry", "Geometry"],
-    "Lat":  52.420008,
-    "Lng":  13.404954,
-    "dist": 0.3,
-    "date": "Monday",
-    "loc": "Starbucks",
-    "img": "https://randomuser.me/api/portraits/women/13.jpg"
-  };
+    },
+    {
+      "name": "Mila C.",
+      "username": "bigrabbit400",
+      "img": "https://randomuser.me/api/portraits/women/47.jpg",
+      "subj": "geography",
+      "Lat": 47.6171526,
+      "Lng": -122.3353294,
+      "date": "Saturday",
+      "loc": "Row House Cafe",
+      "dist": 2.1
+    }
+  ];
+
+  $scope.teacher = teachers.filter(function(obj) {
+    return obj.username == $routeParams.id;
+  })[0];
+
+  console.log($scope.teacher)
 
   // Map
   var center = $scope.teacher.Lat + "," + $scope.teacher.Lng;
@@ -94,7 +167,7 @@ angular.module('Areni.teacher', ['ngRoute'])
       this.messagesRef.push({
         name: currentUser.displayName,
         text: this.messageInput.value,
-        photoUrl: currentUser.photoURL || '/images/profile_placeholder.png'
+        photoUrl: currentUser.photoURL || ''
       }).then(function() {
         // Clear message text field and SEND button state.
         FriendlyChat.resetMaterialTextfield(this.messageInput);
@@ -111,7 +184,8 @@ angular.module('Areni.teacher', ['ngRoute'])
   // Signs-in Friendly Chat.
   FriendlyChat.prototype.signIn = function() {
     var provider = new firebase.auth.GoogleAuthProvider();
-    this.auth.signInWithPopup(provider);
+    if (!this.checkSignedIn())
+      this.auth.signInWithPopup(provider);
   };
 
   // Signs-out of Friendly Chat.
@@ -242,11 +316,7 @@ angular.module('Areni.teacher', ['ngRoute'])
 
   window.onload = function() {
     window.friendlyChat = new FriendlyChat();
-    if(!window.friendlyChat.checkSignedIn())
-      window.friendlyChat.signIn();
   };
-
-
 
 
 }]);
