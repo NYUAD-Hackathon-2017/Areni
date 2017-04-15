@@ -24,9 +24,14 @@ angular.module('Areni.teacher', ['ngRoute'])
     "img": "https://randomuser.me/api/portraits/women/13.jpg"
   };
 
+  // Map
+  var center = $scope.teacher.Lat + "," + $scope.teacher.Lng;
+  $scope.mapurl = 'https://maps.googleapis.com/maps/api/staticmap?center=' + center + '&zoom=8&size=640x320&maptype=terrain&scale=2' + '&key=AIzaSyCjMEFBNCop_GlyWgkkOpD90A10g2yL0nE'
+
+
   // Chat
 
-  
+
 
 
 }]);

@@ -1,140 +1,80 @@
-<div class="jumbotron">
-  <div id="map"></div>
-</div>
+<div class="container">
 
-<div class="row">
-  <!-- DIV filter collapsing must remove "in" to get collapsed default load-->
-  <div class="col-sm-12 col-lg-12 panel-collapse collapse-in" id="collapsingdiv">
-    <div class="row">
-      <!-- Div ciudades -->
-      <div class="col-sm-3" id="divCity">
-        <div class="alert alert-info">
-          <strong id="placeMainAlert">Enter Your Location:</strong>
-          <strong id="alertPlace"></strong>
+  <div class="jumbotron">
+    <div id="map"></div>
+  </div>
+
+  <div class="row">
+    <!-- DIV filter collapsing must remove "in" to get collapsed default load-->
+    <div class="col-sm-12 col-lg-12 panel-collapse collapse-in" id="collapsingdiv">
+      <div class="row">
+        <!-- Div ciudades -->
+        <div class="col-sm-3" id="divCity">
+          <div class="alert alert-info">
+            <strong id="placeMainAlert">Enter Your Location:</strong>
+            <strong id="alertPlace"></strong>
+          </div>
+          <input id="pac-input" class="form-control" type="text">
         </div>
-        <input id="pac-input" class="form-control" type="text">
-      </div>
-      <!-- Div types -->
-      <div class="col-sm-3" id="divTypes">
-        <div class="alert alert-info">
-          <strong>Select A Course:</strong>
+        <!-- Div types -->
+        <div class="col-sm-3" id="divTypes">
+          <div class="alert alert-info">
+            <strong>Select A Course:</strong>
+          </div>
+          <select id="types" class="form-control">
+
+                <option value="second">English</option>
+                <option value="car">Mathematics</option>
+                <option value="third">Chemistry</option>
+
+          </select>
         </div>
-        <select id="types" class="form-control">
-
-              <option value="second">English</option>
-              <option value="car">Mathematics</option>
-              <option value="third">Chemistry</option>
-
-        </select>
-      </div>
-      <!-- Div keyword -->
-      <div class="col-sm-3" id="divKeyword">
-        <div class="alert alert-info">
-          <strong>Enter your keywords</strong>
+        <!-- Div keyword -->
+        <div class="col-sm-3" id="divKeyword">
+          <div class="alert alert-info">
+            <strong>Enter your keywords</strong>
+          </div>
+          <input id="keyword" class="form-control" type="text">
         </div>
-        <input id="keyword" class="form-control" type="text">
-      </div>
-      <div class="col-sm-3" id="divTypes">
-        <div class="alert alert-info">
-          <strong>Select A Time:</strong>
+        <div class="col-sm-3" id="divTypes">
+          <div class="alert alert-info">
+            <strong>Select A Time:</strong>
+          </div>
+          <select id="types" class="form-control">
+
+                <option value="second">8:00AM</option>
+                <option value="car">9:00AM</option>
+                <option value="third">10:00AM</option>
+
+          </select>
         </div>
-        <select id="types" class="form-control">
-
-              <option value="second">8:00AM</option>
-              <option value="car">9:00AM</option>
-              <option value="third">10:00AM</option>
-
-        </select>
-      </div>
-      <div class="container-fluid">
-        <div  class="row">
-          <div class="col-sm-12" >
-            <button type="button" class="btn btn-primary btn-lg center-block btn-submit btn-form">Search</button>
+        <div class="container-fluid">
+          <div  class="row">
+            <div class="col-sm-12" >
+              <button type="button" class="btn btn-primary btn-lg center-block btn-submit btn-form">Search</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<style type="text/css">
-  #infoMap{
-  	background-color:#84F1FF;
-  }
-
-  #map{
-  	height: 40vh;
-  	width: 80%;
-  	margin-left: auto;
-  	margin-right: auto;
-  	text-align: center;
-  	margin-top: 0;
-  }
-
-  .fill-jumbotron{
-  height:100%;
-  background: url('../assets/images/city2.jpg') no-repeat center center;
-  }
-
-  .btn-submit{
-  	margin-top: 30px;
-  }
-
-  #mapsHead{
-  	font-family: 'Lobster', cursive;
-  	color:white;
-  }
-
-  .alert{
-  	margin-top:10px;
-  	margin-bottom: 0px;
-  }
-
-  .btn-form{
-  	margin-top:5px;
-  	margin-bottom:10px;
-  }
-  #alertPlace{
-  	color:red;
-  }
-  .media
-  {
-      /*box-shadow:0px 0px 4px -2px #000;*/
-      margin: 20px 0;
-      padding:30px;
-  }
-  .dp
-  {
-      border:10px solid #eee;
-      transition: all 0.2s ease-in-out;
-  }
-  .dp:hover
-  {
-      border:2px solid #eee;
-      transform:rotate(360deg);
-      -ms-transform:rotate(360deg);
-      -webkit-transform:rotate(360deg);
-      /*-webkit-font-smoothing:antialiased;*/
-  }
-</style>
-
-
-
-<div ng-repeat="teacher in teachers">
-  <div class="panel panel-default">
-    <div class="media panel-body">
-      <div class="media-left">
-        <img class="media-object" src="{{teacher.img}}" alt="{{teacher.name}}" width="100">
-      </div>
-      <div class="media-body">
-        <h3 class="media-heading">
-          {{teacher.name}}
-          <small class="pull-right">{{teacher.dist}} miles </small>
-        </h3>
-        <ul ng-repeat="subject in teacher.subj">
-          <li>{{ subject }}</li>
-        </ul>
-        Next appointment: {{ teacher.date }}
+  <div ng-repeat="teacher in teachers">
+    <div class="panel panel-default">
+      <div class="media panel-body">
+        <div class="media-left">
+          <img class="media-object" src="{{teacher.img}}" alt="{{teacher.name}}" width="100">
+        </div>
+        <div class="media-body">
+          <h3 class="media-heading">
+            {{teacher.name}}
+            <small class="pull-right">{{teacher.dist}} miles </small>
+          </h3>
+          <ul ng-repeat="subject in teacher.subj">
+            <li>{{ subject }}</li>
+          </ul>
+          Next appointment: {{ teacher.date }}
+        </div>
       </div>
     </div>
   </div>
