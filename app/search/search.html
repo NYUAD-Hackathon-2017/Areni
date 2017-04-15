@@ -4,18 +4,22 @@
   <p>will go here</p>
 </div>
 
-<ul ng-repeat="teacher in teachers">
+<div ng-repeat="teacher in teachers">
   <div class="panel panel-default">
     <div class="media panel-body">
       <div class="media-left">
-        <a href="#">
-          <img class="media-object" src="{{teacher.img}}" alt="{{teacher.name}}">
-        </a>
+        <img class="media-object" src="{{teacher.img}}" alt="{{teacher.name}}" width="100">
       </div>
       <div class="media-body">
-        <h4 class="media-heading">{{teacher.name}}</h4>
-        ...
+        <h3 class="media-heading">
+          {{teacher.name}}
+          <small class="pull-right">{{teacher.dist}} miles </small>
+        </h3>
+        <ul ng-repeat="subject in teacher.subj">
+          <li>{{ subject }}</li>
+        </ul>
+        Next appointment: {{ teacher.date }}
       </div>
     </div>
   </div>
-</ul>
+</div>

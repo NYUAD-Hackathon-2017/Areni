@@ -14,9 +14,18 @@ angular.module('Areni.search', ['ngRoute'])
     {
       "name": "Sara L.",
       "subj": ["Algebra", "Trigonometry", "Geometry"],
-      "dist": 1.2,
+      "dist": 0.3,
       "date": "Monday",
+      "loc": "Starbucks",
       "img": "https://randomuser.me/api/portraits/women/13.jpg"
+    },
+    {
+      "name": "Matt S.",
+      "subj": ["English", "Writing", "History"],
+      "dist": 1.2,
+      "date": "Wednesday",
+      "loc": "Seattle Public Library",
+      "img": "https://randomuser.me/api/portraits/men/67.jpg"
     }
   ];
 

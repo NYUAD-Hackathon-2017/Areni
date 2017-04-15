@@ -4,11 +4,11 @@
 angular.module('Areni', [
   'ngRoute',
   'Areni.search',
-  'Areni.view2',
+  'Areni.welcome',
   'Areni.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
 
-  $routeProvider.otherwise({redirectTo: '/search'});
+  $routeProvider.otherwise({redirectTo: '/welcome'});
 }]);
