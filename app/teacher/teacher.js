@@ -6,10 +6,18 @@ angular.module('Areni.teacher', ['ngRoute'])
   $routeProvider.when('/teacher/:id', {
     templateUrl: 'teacher/teacher.html',
     controller: 'teacherCtrl'
+  })
+  .when('/teacher/:id/:session', {
+    templateUrl: 'teacher/teacher.html',
+    controller: 'teacherCtrl'
   });
 }])
 
 .controller('teacherCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
+  $scope.session = $routeParams.session != null;
+
+  console.log($scope.session, $routeParams.session);
+
   var teachers = [
     {
       "name": "Alizee A.",
@@ -20,7 +28,9 @@ angular.module('Areni.teacher', ['ngRoute'])
       "Lng": -122.3263265,
       "date": "Sunday",
       "loc": "Tully's Coffee",
-      "dist": 0.3
+      "dist": 0.3,
+      "stars": 4,
+      "time": "11:00 AM"
     },
     {
       "name": "Anni S.",
@@ -31,7 +41,9 @@ angular.module('Areni.teacher', ['ngRoute'])
       "Lng": -122.3280238,
       "date": "Monday",
       "loc": "Sugar Bakery & Cafe",
-      "dist": 0.1
+      "dist": 0.1,
+      "stars": 4,
+      "time": "5:00 PM"
     },
     {
       "name": "Eden D.",
@@ -42,7 +54,9 @@ angular.module('Areni.teacher', ['ngRoute'])
       "Lng": -122.3345898,
       "date": "Tuesday",
       "loc": "Peet's Coffee & Tea",
-      "dist": 0.2
+      "dist": 0.2,
+      "stars": 4,
+      "time": "2:00 PM"
     },
     {
       "name": "Zoe C.",
@@ -53,7 +67,9 @@ angular.module('Areni.teacher', ['ngRoute'])
       "Lng": -122.3432501,
       "date": "Wednesday",
       "loc": "Chatterbox Cafe",
-      "dist": 0.6
+      "dist": 0.6,
+      "stars": 5,
+      "time": "6:00 PM"
     },
     {
       "name": "Mathis K.",
@@ -64,7 +80,9 @@ angular.module('Areni.teacher', ['ngRoute'])
       "Lng": -122.3623953,
       "date": "Thursday",
       "loc": "Ambrosia Cafe",
-      "dist": 0.9
+      "dist": 0.9,
+      "stars": 3,
+      "time": "12:00 PM"
     },
     {
       "name": "Britney F.",
@@ -75,7 +93,9 @@ angular.module('Areni.teacher', ['ngRoute'])
       "Lng": -122.3314294,
       "date": "Friday",
       "loc": "HardWok Cafe",
-      "dist": 1
+      "dist": 1,
+      "stars": 4,
+      "time": "3:00 PM"
 
     },
     {
@@ -87,7 +107,9 @@ angular.module('Areni.teacher', ['ngRoute'])
       "Lng": -122.3353294,
       "date": "Saturday",
       "loc": "Row House Cafe",
-      "dist": 2.1
+      "dist": 2.1,
+      "stars": 5,
+      "time": "1:00 PM"
     }
   ];
 
@@ -99,8 +121,15 @@ angular.module('Areni.teacher', ['ngRoute'])
 
   // Map
   var center = $scope.teacher.Lat + "," + $scope.teacher.Lng;
-  $scope.mapurl = 'https://maps.googleapis.com/maps/api/staticmap?center=' + center + '&zoom=11&size=640x320&maptype=terrain&scale=2' + '&key=AIzaSyCjMEFBNCop_GlyWgkkOpD90A10g2yL0nE'
 
+  $scope.getMapUrl = function(width, height) {
+    return 'https://maps.googleapis.com/maps/api/staticmap?center='
+    + center
+    + '&zoom=11'
+    + '&size=' + width + 'x' + height
+    + '&maptype=terrain&scale=2'
+    + '&key=AIzaSyCjMEFBNCop_GlyWgkkOpD90A10g2yL0nE'
+  }
 
   // Chat
   // Initializes FriendlyChat.

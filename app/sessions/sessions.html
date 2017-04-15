@@ -52,20 +52,30 @@
 
   <div ng-repeat="teacher in teachers | orderBy:[groupComparator, 'dist']" ng-show="plsWork.subj==teacher.subj">
   <div class="panel panel-default">
+
     <div class="media panel-body">
-      <div class="media-left">
-        <img class="media-object" src="{{teacher.img}}" alt="{{teacher.name}}" width="100">
+      <div class="media-left" style="padding-right: 30px;">
+        <img class="media-object img-circle" src="{{teacher.img}}" alt="{{teacher.name}}" width="100">
       </div>
       <div class="media-body">
         <h3 class="media-heading">
-          {{teacher.name}}
-          <small class="pull-right">{{teacher.dist}} miles </small> <br/>
-          <small class="pull-right">{{teacher.loc}} </small>
+          <a href="#!/teacher/{{teacher.username}}">{{ teacher.subj }} with {{teacher.name}}</a>
+          <small>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star" ng-if="teacher.stars == 5"></span>
+            <span class="glyphicon glyphicon-star-empty" ng-if="teacher.stars < 5"></span>
+          </small>
+
+          <a href="#!/teacher/{{teacher.username}}" class="btn btn-primary btn-lg pull-right">Attend Session</a>
+
         </h3>
-        <ul>
-          <li>{{ teacher.subj }}</li>
-        </ul>
-        Next appointment: {{ teacher.date }}
+        <h3>
+          <small><span class="glyphicon glyphicon-calendar"></span> {{ teacher.date }} at {{ teacher.time }}</small><br/>
+          <small><span class="glyphicon glyphicon-map-marker"></span> {{teacher.loc}} ({{teacher.dist}} miles away)</small>
+        </h3>
       </div>
     </div>
   </div>

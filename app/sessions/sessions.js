@@ -20,7 +20,9 @@ angular.module('Areni.sessions', ['ngRoute'])
       "Lng": -122.3263265,
       "date": "Sunday",
       "loc": "Tully's Coffee",
-      "dist": 0.3
+      "dist": 0.3,
+      "stars": 4,
+      "time": "11:00 AM"
     },
     {
       "name": "Anni S.",
@@ -31,7 +33,9 @@ angular.module('Areni.sessions', ['ngRoute'])
       "Lng": -122.3280238,
       "date": "Monday",
       "loc": "Sugar Bakery & Cafe",
-      "dist": 0.1
+      "dist": 0.1,
+      "stars": 4,
+      "time": "5:00 PM"
     },
     {
       "name": "Eden D.",
@@ -42,7 +46,9 @@ angular.module('Areni.sessions', ['ngRoute'])
       "Lng": -122.3345898,
       "date": "Tuesday",
       "loc": "Peet's Coffee & Tea",
-      "dist": 0.2
+      "dist": 0.2,
+      "stars": 4,
+      "time": "2:00 PM"
     },
     {
       "name": "Zoe C.",
@@ -53,7 +59,9 @@ angular.module('Areni.sessions', ['ngRoute'])
       "Lng": -122.3432501,
       "date": "Wednesday",
       "loc": "Chatterbox Cafe",
-      "dist": 0.6
+      "dist": 0.6,
+      "stars": 5,
+      "time": "6:00 PM"
     },
     {
       "name": "Mathis K.",
@@ -64,7 +72,9 @@ angular.module('Areni.sessions', ['ngRoute'])
       "Lng": -122.3623953,
       "date": "Thursday",
       "loc": "Ambrosia Cafe",
-      "dist": 0.9
+      "dist": 0.9,
+      "stars": 3,
+      "time": "12:00 PM"
     },
     {
       "name": "Britney F.",
@@ -75,7 +85,9 @@ angular.module('Areni.sessions', ['ngRoute'])
       "Lng": -122.3314294,
       "date": "Friday",
       "loc": "HardWok Cafe",
-      "dist": 1
+      "dist": 1,
+      "stars": 4,
+      "time": "3:00 PM"
 
     },
     {
@@ -87,7 +99,9 @@ angular.module('Areni.sessions', ['ngRoute'])
       "Lng": -122.3353294,
       "date": "Saturday",
       "loc": "Row House Cafe",
-      "dist": 2.1
+      "dist": 2.1,
+      "stars": 5,
+      "time": "1:00 PM"
     }
   ];
 
