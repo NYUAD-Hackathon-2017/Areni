@@ -3,18 +3,31 @@
 
 
   <div class="container" style="z-index: 1">
-    <div class="panel panel-default" style="display: inline-block; background-color: rgba(255, 255, 255, .95);">
-      <div class="panel-body">
-        <h1>
-          <img src="{{teacher.img}}" alt="" class="img-circle">
-          <small>Hi, I'm</small>
-          {{ teacher.name }}
-        </h1>
+    <div class="row">
+      <div class="panel panel-default col-sm-6 col-xs-10 col-xs-offset-1" style="display: inline-block; background-color: rgba(255, 255, 255, .95);">
+        <div class="panel-body media" style="display: inline-block;">
+          <div class="media-left">
+            <img src="{{teacher.img}}" alt="" class="img-circle">
+          </div>
+          <div class="media-body">
+            <h1>
+              <small>Hi, I'm</small>
+              {{ teacher.name }}
+            </h1>
+            <h3>Subjects</h3>
+            <ul ng-repeat="subject in teacher.subj">
+              <li>{{subject}}</li>
+            </ul>
+
+          </div>
+
+
+        </div>
       </div>
     </div>
+  </div>
 
-
-<<<<<<< HEAD
+</div>
 <h3>Chat</h3>
 <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
@@ -71,28 +84,13 @@
 
     </div>
   </main>
-=======
 
-  </div>
-
-
-
-
-</div>
 
 <div class="container">
 
+  <div class="page-header">
+    <h1>Upcoming sessions</h1>
+  </div>
 
-  <h3>Location</h3>
-  {{ teacher.Lat }}, {{ teacher.Lng }}
-  {{ teacher.dist }} miles away
 
-  <h3>Subjects</h3>
-  <ul ng-repeat="subject in teacher.subj">
-    <li>{{subject}}</li>
-  </ul>
-
-  <h3>Chat</h3>
-
->>>>>>> 84b6bb219ae5f382fa49ad52527ac5b7d55fb60d
 </div>
