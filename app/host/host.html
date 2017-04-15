@@ -1,9 +1,45 @@
-<div class="container">
+<div class="container" style="background-image: url({{getMapUrl(640,320)}}
+); background-attachment: fixed; background-size: cover; position: relative;">
 
   <div class="page-header">
     <h1>Host a session</h1>
   </div>
-
-
-  Sign up here.
+  <br />
+<div class="container">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+         <div class="row myborder">
+            <div class="input-group margin-bottom-20">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user mycolor"></i></span>
+                <input size="60" maxlength="255" class="form-control" placeholder="Subject" name="UserRegistration[username]" id="UserRegistration_username" type="text">
+            </div>
+            <div class="input-group margin-bottom-20">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-time mycolor"></i></span>
+                <input size="60" maxlength="255" class="form-control" placeholder="Time" name="UserRegistration[username]" id="UserRegistration_username" type="text">
+            </div>
+            <div class="input-group margin-bottom-20">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-eye-open mycolor"></i></span>
+                <input size="60" maxlength="255" class="form-control" placeholder="Location" name="UserRegistration[username]" id="UserRegistration_username" type="text">
+            </div>
+            <div class="input-group margin-bottom-20">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar mycolor"></i></span>
+                <select class="form-control">
+                	<option value="Select A Day">Select A Day</option>
+                	<option value="Monday">Monday</option>
+                	<option value="Tuesday">Tuesday</option>
+                	<option value="Wednesday">Wednesday</option>
+                	<option value="Thursday">Thursday</option>
+                	<option value="Friday">Friday</option>
+                	<option value="Saturday">Saturday</option>
+                </select>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <button class="btn-u pull-left" type="submit">Add Session</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+      </div>
 </div>
