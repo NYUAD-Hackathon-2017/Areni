@@ -59,101 +59,101 @@
 
 
 <script type="text/javascript">
-  var locations = [
-  ['<b>Mariam Garba <br/> Course: Mathematics <br/> Time: 10:00Am - 12:00PM </b>', 52.420008, 13.404954, 4],
-  ['<b>Sana Khiari <br/> Course: Mathematics <br/> Time: 10:00Am - 12:00PM </b>', 52.4200081, 13.204954, 5],
-  ['<b>Zachary Brownson <br/> Course: Mathematics <br/> Time: 10:00Am - 12:00PM </b>', 52.4200081, 13.504954, 3],
-  ['<b>Sana Khiari <br/> Course: Mathematics <br/> Time: 10:00Am - 12:00PM </b>', 52.4200081, 13.574954, 2],
-  ['<b>Zachary Brownson <br/> Course: Mathematics <br/> Time: 10:00Am - 12:00PM </b>', 52.520008, 13.404954, 1]
-];
+    var locations = [
+    ['<b>Mariam Garba <br/> Course: Mathematics <br/> Time: 10:00Am - 12:00PM </b>', 52.420008, 13.404954, 4],
+    ['<b>Sana Khiari <br/> Course: Mathematics <br/> Time: 10:00Am - 12:00PM </b>', 52.4200081, 13.204954, 5],
+    ['<b>Zachary Brownson <br/> Course: Mathematics <br/> Time: 10:00Am - 12:00PM </b>', 52.4200081, 13.504954, 3],
+    ['<b>Sana Khiari <br/> Course: Mathematics <br/> Time: 10:00Am - 12:00PM </b>', 52.4200081, 13.574954, 2],
+    ['<b>Zachary Brownson <br/> Course: Mathematics <br/> Time: 10:00Am - 12:00PM </b>', 52.520008, 13.404954, 1]
+  ];
 
-var map = new google.maps.Map(document.getElementById('map'), {
-  zoom: 10,
-  center: new google.maps.LatLng(52.520008, 13.404954),
-  mapTypeId: google.maps.MapTypeId.ROADMAP
-});
-
-var infowindow = new google.maps.InfoWindow();
-
-var marker, i;
- var image = 'http://www.everymanministries.com/Content/shared/images/usericon.png';
-
-for (i = 0; i < locations.length; i++) {
-  marker = new google.maps.Marker({
-    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-    map: map,
-    icon: image
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 10,
+    center: new google.maps.LatLng(52.520008, 13.404954),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
   });
 
-  google.maps.event.addListener(marker, 'click', (function(marker, i) {
-    return function() {
-      infowindow.setContent(locations[i][0]);
-      infowindow.open(map, marker);
-    }
-  })(marker, i));
-}
+  var infowindow = new google.maps.InfoWindow();
+
+  var marker, i;
+   var image = 'http://www.everymanministries.com/Content/shared/images/usericon.png';
+
+  for (i = 0; i < locations.length; i++) {
+    marker = new google.maps.Marker({
+      position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+      map: map,
+      icon: image
+    });
+
+    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+      return function() {
+        infowindow.setContent(locations[i][0]);
+        infowindow.open(map, marker);
+      }
+    })(marker, i));
+  }
 
 </script>
 
 <style type="text/css">
-#infoMap{
-	background-color:#84F1FF;
-}
+  #infoMap{
+  	background-color:#84F1FF;
+  }
 
-#map{
-	height: 40vh;
-	width: 80%;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-	margin-top: 0;
-}
+  #map{
+  	height: 40vh;
+  	width: 80%;
+  	margin-left: auto;
+  	margin-right: auto;
+  	text-align: center;
+  	margin-top: 0;
+  }
 
-.fill-jumbotron{
-height:100%;
-background: url('../assets/images/city2.jpg') no-repeat center center;
-}
+  .fill-jumbotron{
+  height:100%;
+  background: url('../assets/images/city2.jpg') no-repeat center center;
+  }
 
-.btn-submit{
-	margin-top: 30px;
-}
+  .btn-submit{
+  	margin-top: 30px;
+  }
 
-#mapsHead{
-	font-family: 'Lobster', cursive;
-	color:white;
-}
+  #mapsHead{
+  	font-family: 'Lobster', cursive;
+  	color:white;
+  }
 
-.alert{
-	margin-top:10px;
-	margin-bottom: 0px;
-}
+  .alert{
+  	margin-top:10px;
+  	margin-bottom: 0px;
+  }
 
-.btn-form{
-	margin-top:5px;
-	margin-bottom:10px;
-}
-#alertPlace{
-	color:red;
-}
-.media
-{
-    /*box-shadow:0px 0px 4px -2px #000;*/
-    margin: 20px 0;
-    padding:30px;
-}
-.dp
-{
-    border:10px solid #eee;
-    transition: all 0.2s ease-in-out;
-}
-.dp:hover
-{
-    border:2px solid #eee;
-    transform:rotate(360deg);
-    -ms-transform:rotate(360deg);
-    -webkit-transform:rotate(360deg);
-    /*-webkit-font-smoothing:antialiased;*/
-}
+  .btn-form{
+  	margin-top:5px;
+  	margin-bottom:10px;
+  }
+  #alertPlace{
+  	color:red;
+  }
+  .media
+  {
+      /*box-shadow:0px 0px 4px -2px #000;*/
+      margin: 20px 0;
+      padding:30px;
+  }
+  .dp
+  {
+      border:10px solid #eee;
+      transition: all 0.2s ease-in-out;
+  }
+  .dp:hover
+  {
+      border:2px solid #eee;
+      transform:rotate(360deg);
+      -ms-transform:rotate(360deg);
+      -webkit-transform:rotate(360deg);
+      /*-webkit-font-smoothing:antialiased;*/
+  }
 </style>
 
 
@@ -177,3 +177,9 @@ background: url('../assets/images/city2.jpg') no-repeat center center;
     </div>
   </div>
 </div>
+
+
+<!-- Google Maps -->
+<script async defer
+   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjkb3189UyAlBW3vSFE8PiIZqFxcwbFMQ">
+ </script>
