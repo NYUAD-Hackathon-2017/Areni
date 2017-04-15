@@ -1,0 +1,21 @@
+<div class="jumbotron">
+  <h1>A map</h1>
+  <p>...</p>
+  <p>will go here</p>
+</div>
+
+<ul ng-repeat="teacher in teachers">
+  <div class="panel panel-default">
+    <div class="media panel-body">
+      <div class="media-left">
+        <a href="#">
+          <img class="media-object" src="{{teacher.img}}" alt="{{teacher.name}}">
+        </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">{{teacher.name}}</h4>
+        ...
+      </div>
+    </div>
+  </div>
+</ul>
