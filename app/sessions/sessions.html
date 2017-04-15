@@ -12,8 +12,11 @@
     <div class="container-fluid">
       <form class="navbar-form navbar-left">
         <div class="form-group">
-          <label for="types">Filter by subject: </label>
-          <select id="types" class="form-control" ng-model="subject" ng-options="item for item in subjects" ng-change="update()"></select>
+          <label>Filter by subject: </label>
+          <div class="btn-group" role="group">
+            <a class="btn btn-default" ng-repeat="subject in subjects" ng-click="setSubject(subject)">{{subject}}</a>
+          </div>
+          <a class="btn btn-default" ng-click="setSubject()"><span class="glyphicon glyphicon-remove-circle"></span> Clear</a>
         </div>
       </form>
 

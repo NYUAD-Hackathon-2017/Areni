@@ -106,15 +106,17 @@ angular.module('Areni.sessions', ['ngRoute'])
   ];
 
   $scope.subjects = [
-    '',
-    'Math',
-    'Geology',
-    'Music',
     'English',
-    'History',
     'Geography',
+    'Geology',
+    'History',
+    'Math',
+    'Music',
     'Science'
   ];
+  $scope.setSubject = function(s) {
+    $scope.subject = s;
+  }
 
   $scope.subject;
 
