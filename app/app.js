@@ -3,7 +3,9 @@
 // Declare app level module which depends on views, and components
 angular.module('Areni', [
   'ngRoute',
-  'Areni.search',
+  'Areni.sessions',
+  'Areni.login',
+  'Areni.teacher',
   'Areni.welcome',
   'Areni.version'
 ]).

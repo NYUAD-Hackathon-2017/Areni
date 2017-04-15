@@ -40,8 +40,8 @@ chat.controller('chat', ['Messages', '$scope', function(Messages, $scope) {
     });
     // Send Messages
     $scope.send = function() {
-        Messages.send({ 
-            data: $scope.textbox 
+        Messages.send({
+            data: $scope.textbox
         });
     };
 }]);
@@ -61,4 +61,3 @@ chat.controller('chat', ['Messages', '$scope', function(Messages, $scope) {
         </form>
     </div>
 </div>
-    

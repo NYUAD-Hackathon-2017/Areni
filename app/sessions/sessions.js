@@ -1,15 +1,15 @@
 'use strict';
 
-angular.module('Areni.search', ['ngRoute'])
+angular.module('Areni.sessions', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/search', {
-    templateUrl: 'search/search.html',
-    controller: 'searchCtrl'
+  $routeProvider.when('/sessions', {
+    templateUrl: 'sessions/sessions.html',
+    controller: 'sessionsCtrl'
   });
 }])
 
-.controller('searchCtrl', ['$scope', function($scope) {
+.controller('sessionsCtrl', ['$scope', function($scope) {
   $scope.teachers = [
     {
       "name": "Sara L.",
