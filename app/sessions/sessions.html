@@ -52,6 +52,11 @@
 
           </h3>
           <h3>
+            <small><span class="glyphicon glyphicon-globe"></span>
+            <span ng-repeat="lang in teacher.language"><span ng-if="$index == teacher.language.length-1 && teacher.language.length > 1">and</span> {{lang}}<span ng-if="$index < teacher.language.length-2">, </span>  </span>
+          </small></h3>
+          <hr />
+          <h3>
             <small><span class="glyphicon glyphicon-calendar"></span> {{ teacher.date }} at {{ teacher.time }}</small><br/>
             <small><span class="glyphicon glyphicon-map-marker"></span> {{teacher.loc}} ({{teacher.dist}} miles away)</small>
           </h3>

@@ -15,7 +15,7 @@
             {{ teacher.name }}
           </h2>
           <p>I can help with <b>{{teacher.subj}}</b></p>
-          <p>I speak <b ng-repeat="lang in teacher.language"><span ng-if="$index == teacher.language.length-1">and</span> {{lang}}<span ng-if="$index < teacher.language.length-2">, </span>  </b></p>
+          <p>I speak <b ng-repeat="lang in teacher.language"><span ng-if="$index == teacher.language.length-1 && teacher.language.length > 1">and</span> {{lang}}<span ng-if="$index < teacher.language.length-2">, </span>  </b></p>
 
 
         </div>
