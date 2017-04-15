@@ -2,95 +2,83 @@
 ); background-attachment: fixed; background-size: cover; position: relative;">
 
 
-  <div class="container" style="z-index: 1">
-    <div class="row">
-      <div class="panel panel-default col-sm-6 col-xs-10 col-xs-offset-1" style="display: inline-block; background-color: rgba(255, 255, 255, .95);">
-        <div class="panel-body media" style="display: inline-block;">
-          <div class="media-left">
-            <img src="{{teacher.img}}" alt="" class="img-circle">
-          </div>
-          <div class="media-body">
-            <h1>
-              <small>Hi, I'm</small>
-              {{ teacher.name }}
-            </h1>
-            <h3>Subjects</h3>
-            <ul ng-repeat="subject in teacher.subj">
-              <li>{{subject}}</li>
-            </ul>
-
-          </div>
-
+<div class="container" style="z-index: 1">
+  <div class="row">
+    <div class="panel panel-default col-xs-10 col-md-8 col-lg-6 col-xs-offset-1 col-sm-offset-0" style="display: inline-block; background-color: rgba(255, 255, 255, .95);">
+      <div class="panel-body row" style="display: inline-block;">
+        <div class="col-sm-4">
+          <img src="{{teacher.img}}" alt="" class="img-circle" style="max-width: 100%;">
+        </div>
+        <div class="col-sm-8">
+          <h2>
+            <small>Hi, I'm</small>
+            {{ teacher.name }}
+          </h2>
+          <h4>I can help with:</h4>
+          <ul ng-repeat="subject in teacher.subj">
+            <li>{{subject}}</li>
+          </ul>
 
         </div>
+
+
       </div>
     </div>
   </div>
+</div>
 
 </div>
-<h3>Chat</h3>
-<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
-
-  <!-- Header section containing logo -->
-  <header class="mdl-layout__header mdl-color-text--white mdl-color--light-blue-700">
-    <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
-      <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
-        <h3><i class="material-icons">chat_bubble_outline</i> Messages</h3>
-      </div>
-      <div id="user-container">
-        <div hidden id="user-pic"></div>
-        <div hidden id="user-name"></div>
-        <button hidden id="sign-out" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
-          Sign-out
-        </button>
-        <button hidden id="sign-in" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
-          <i class="material-icons">account_circle</i>Sign-in with Google
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <main class="mdl-layout__content mdl-color--grey-100">
-    <div id="messages-card-container" class="mdl-cell mdl-cell--12-col mdl-grid">
-
-      <!-- Messages container -->
-      <div id="messages-card" class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--6-col-tablet mdl-cell--6-col-desktop">
-        <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-          <div id="messages">
-            <span id="message-filler"></span>
-          </div>
-          <form id="message-form" action="#">
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" id="message">
-              <label class="mdl-textfield__label" for="message">Message...</label>
-            </div>
-            <button id="submit" disabled type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-              Send
-            </button>
-          </form>
-          <form id="image-form" action="#">
-            <input id="mediaCapture" type="file" accept="image/*,capture=camera">
-            <button id="submitImage" title="Add an image" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--amber-400 mdl-color-text--white">
-              <i class="material-icons">image</i>
-            </button>
-          </form>
-        </div>
-      </div>
-
-      <div id="must-signin-snackbar" class="mdl-js-snackbar mdl-snackbar">
-        <div class="mdl-snackbar__text"></div>
-        <button class="mdl-snackbar__action" type="button"></button>
-      </div>
-
-    </div>
-  </main>
 
 
 <div class="container">
+  <div id="user-container">
+    <div hidden id="user-pic"></div>
+    <div hidden id="user-name"></div>
+    <button hidden id="sign-out">
+      Sign-out
+    </button>
+    <button hidden id="sign-in">
+      Sign-in with Google
+    </button>
+  </div>
 
-  <div class="page-header">
-    <h1>Upcoming sessions</h1>
+  <div class="row">
+
+  <div class="col-lg-8 col-md-6">
+    <div class="page-header">
+      <h1>Upcoming sessions</h1>
+    </div>
   </div>
 
 
-</div>
+
+
+
+    <div class="col-lg-4 col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3>Chat</h3>
+        </div>
+
+        <ul id="messages" class="list-group">
+        </ul>
+
+        <div class="panel-footer">
+          <form id="message-form" action="#" class="form-inline">
+            <div class="form-group">
+              <input type="text" class="form-control" id="message" placeholder="Send a message">
+            </div>
+            <button id="submit" type="submit" class="btn btn-primary">
+              Send
+            </button>
+          </form>
+
+          <div id="must-signin-snackbar" class="mdl-js-snackbar mdl-snackbar">
+            <div class="mdl-snackbar__text"></div>
+            <button class="mdl-snackbar__action" type="button"></button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>

@@ -30,23 +30,6 @@ angular.module('Areni.teacher', ['ngRoute'])
 
 
   // Chat
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-'use strict';
-
 // Initializes FriendlyChat.
 function FriendlyChat() {
   this.checkSetup();
@@ -57,8 +40,6 @@ function FriendlyChat() {
   this.messageInput = document.getElementById('message');
   this.submitButton = document.getElementById('submit');
   this.submitImageButton = document.getElementById('submitImage');
-  this.imageForm = document.getElementById('image-form');
-  this.mediaCapture = document.getElementById('mediaCapture');
   this.userPic = document.getElementById('user-pic');
   this.userName = document.getElementById('user-name');
   this.signInButton = document.getElementById('sign-in');
@@ -74,13 +55,6 @@ function FriendlyChat() {
   var buttonTogglingHandler = this.toggleButton.bind(this);
   this.messageInput.addEventListener('keyup', buttonTogglingHandler);
   this.messageInput.addEventListener('change', buttonTogglingHandler);
-
-  // Events for image upload.
-  this.submitImageButton.addEventListener('click', function(e) {
-    e.preventDefault();
-    this.mediaCapture.click();
-  }.bind(this));
-  this.mediaCapture.addEventListener('change', this.saveImageMessage.bind(this));
 
   this.initFirebase();
 }
@@ -116,7 +90,7 @@ FriendlyChat.prototype.loadMessages = function() {
 FriendlyChat.prototype.saveMessage = function(e) {
  e.preventDefault();
   // Check that the user entered a message and is signed in.
-  if (this.messageInput.value && this.checkSignedInWithMessage()) {
+  if (this.messageInput.value && this.checkSignedIn()) {
     var currentUser = this.auth.currentUser;
     // Add a new message entry to the Firebase Database.
     this.messagesRef.push({
@@ -133,42 +107,12 @@ FriendlyChat.prototype.saveMessage = function(e) {
   }
 };
 
-// Sets the URL of the given img element with the URL of the image stored in Cloud Storage.
-FriendlyChat.prototype.setImageUrl = function(imageUri, imgElement) {
-  imgElement.src = imageUri;
 
-  // TODO(DEVELOPER): If image is on Cloud Storage, fetch image URL and set img element's src.
-};
 
-// Saves a new message containing an image URI in Firebase.
-// This first saves the image in Firebase storage.
-FriendlyChat.prototype.saveImageMessage = function(event) {
-  event.preventDefault();
-  var file = event.target.files[0];
-
-  // Clear the selection in the file picker input.
-  this.imageForm.reset();
-
-  // Check if the file is an image.
-  if (!file.type.match('image.*')) {
-    var data = {
-      message: 'You can only share images',
-      timeout: 2000
-    };
-    this.signInSnackbar.MaterialSnackbar.showSnackbar(data);
-    return;
-  }
-  // Check if the user is signed-in
-  if (this.checkSignedInWithMessage()) {
-
-    // TODO(DEVELOPER): Upload image to Firebase storage and add message.
-
-  }
-};
 
 // Signs-in Friendly Chat.
 FriendlyChat.prototype.signIn = function() {
-  
+
    var provider = new firebase.auth.GoogleAuthProvider();
   this.auth.signInWithPopup(provider);
 
@@ -178,7 +122,7 @@ FriendlyChat.prototype.signIn = function() {
 
 // Signs-out of Friendly Chat.
 FriendlyChat.prototype.signOut = function() {
-  
+
   this.auth.signOut();
 
 };
@@ -219,7 +163,7 @@ FriendlyChat.prototype.onAuthStateChanged = function(user) {
 };
 
 // Returns true if user is signed-in. Otherwise false and displays a message.
-FriendlyChat.prototype.checkSignedInWithMessage = function() {
+FriendlyChat.prototype.checkSignedIn = function() {
    if (this.auth.currentUser) {
     return true;
   }
@@ -251,11 +195,11 @@ FriendlyChat.resetMaterialTextfield = function(element) {
 
 // Template for messages.
 FriendlyChat.MESSAGE_TEMPLATE =
-    '<div class="message-container">' +
+    '<li class="message-container list-group-item">' +
       '<div class="spacing"><div class="pic"></div></div>' +
       '<div class="message"></div>' +
       '<div class="name"></div>' +
-    '</div>';
+    '</li>';
 
 // A loading image URL.
 FriendlyChat.LOADING_IMAGE_URL = 'https://www.google.com/images/spin-32.gif';
@@ -265,7 +209,7 @@ FriendlyChat.prototype.displayMessage = function(key, name, text, picUrl, imageU
   var div = document.getElementById(key);
   // If an element for that message does not exists yet we create it.
   if (!div) {
-    var container = document.createElement('div');
+    var container = document.createElement('li');
     container.innerHTML = FriendlyChat.MESSAGE_TEMPLATE;
     div = container.firstChild;
     div.setAttribute('id', key);
@@ -280,14 +224,6 @@ FriendlyChat.prototype.displayMessage = function(key, name, text, picUrl, imageU
     messageElement.textContent = text;
     // Replace all line breaks by <br>.
     messageElement.innerHTML = messageElement.innerHTML.replace(/\n/g, '<br>');
-  } else if (imageUri) { // If the message is an image.
-    var image = document.createElement('img');
-    image.addEventListener('load', function() {
-      this.messageList.scrollTop = this.messageList.scrollHeight;
-    }.bind(this));
-    this.setImageUrl(imageUri, image);
-    messageElement.innerHTML = '';
-    messageElement.appendChild(image);
   }
   // Show the card fading-in.
   setTimeout(function() {div.classList.add('visible')}, 1);
