@@ -13,42 +13,30 @@
     <div class="col-sm-12 col-lg-12 panel-collapse collapse-in" id="collapsingdiv">
       <div class="row">
         <!-- Div ciudades -->
-        <div class="col-sm-3" id="divCity">
+        <div class="col-sm-4" id="divCity">
           <div class="alert alert-info">
-            <strong id="placeMainAlert">Enter Your Location:</strong>
+            <strong id="placeMainAlert">Enter A Location:</strong>
             <strong id="alertPlace"></strong>
           </div>
           <input id="pac-input" class="form-control" type="text">
         </div>
         <!-- Div types -->
-        <div class="col-sm-3" id="divTypes">
+        <div class="col-sm-4" id="divTypes">
           <div class="alert alert-info">
             <strong>Select A Course:</strong>
           </div>
-          <select id="types" class="form-control">
-
-                <option value="second">English</option>
-                <option value="car">Mathematics</option>
-                <option value="third">Chemistry</option>
-
-          </select>
+          <select id="types" class="form-control" >
+              <option ng-repeat="teacher in teachers" value="{{teacher.subj}}" ng-model="teacher.subj" ng-change="update(teacher.subj)">{{teacher.subj}}</option>
+        </select>
         </div>
-        <!-- Div keyword -->
-        <div class="col-sm-3" id="divKeyword">
+        
+        <div class="col-sm-4" id="divTypes">
           <div class="alert alert-info">
-            <strong>Enter your keywords</strong>
-          </div>
-          <input id="keyword" class="form-control" type="text">
-        </div>
-        <div class="col-sm-3" id="divTypes">
-          <div class="alert alert-info">
-            <strong>Select A Time:</strong>
+            <strong>Select A Day</strong>
           </div>
           <select id="types" class="form-control">
 
-                <option value="second">8:00AM</option>
-                <option value="car">9:00AM</option>
-                <option value="third">10:00AM</option>
+                <option ng-repeat="teacher in teachers" value="{{teacher.date}}">{{teacher.date}}</option>
 
           </select>
         </div>
@@ -63,23 +51,24 @@
     </div>
   </div>
 
-  <div ng-repeat="teacher in teachers">
-    <div class="panel panel-default">
-      <div class="media panel-body">
-        <div class="media-left">
-          <img class="media-object" src="{{teacher.img}}" alt="{{teacher.name}}" width="100">
-        </div>
-        <div class="media-body">
-          <h3 class="media-heading">
-            {{teacher.name}}
-            <small class="pull-right">{{teacher.dist}} miles </small>
-          </h3>
-          <ul ng-repeat="subject in teacher.subj">
-            <li>{{ subject }}</li>
-          </ul>
-          Next appointment: {{ teacher.date }}
-        </div>
+  <div ng-repeat="teacher in teachers | orderBy:[groupComparator, 'dist']">
+  <div class="panel panel-default">
+    <div class="media panel-body">
+      <div class="media-left">
+        <img class="media-object" src="{{teacher.img}}" alt="{{teacher.name}}" width="100">
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading">
+          {{teacher.name}}
+          <small class="pull-right">{{teacher.dist}} miles </small> <br/>
+          <small class="pull-right">{{teacher.loc}} </small>
+        </h3>
+        <ul>
+          <li>{{ teacher.subj }}</li>
+        </ul>
+        Next appointment: {{ teacher.date }}
       </div>
     </div>
   </div>
+</div>
 </div>
