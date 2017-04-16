@@ -14,7 +14,7 @@
         <div class="form-group">
           <label>Filter by subject: </label>
           <div class="btn-group" role="group">
-            <a class="btn btn-default" ng-repeat="subject in subjects" ng-click="setSubject(subject)">{{subject}}</a>
+            <a class="btn btn-default {{ subj == subject? 'active' : ''  }}" ng-repeat="subj in subjects" ng-click="setSubject(subj)">{{subj}}</a>
           </div>
           <a class="btn btn-default" ng-click="setSubject()"><span class="glyphicon glyphicon-remove-circle"></span> Clear</a>
         </div>
