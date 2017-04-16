@@ -602,8 +602,7 @@ angular.module('Areni.teacher', ['ngRoute'])
   // Signs-in Friendly Chat.
   FriendlyChat.prototype.signIn = function() {
     var provider = new firebase.auth.GoogleAuthProvider();
-    if (!this.checkSignedIn())
-      this.auth.signInWithPopup(provider);
+    this.auth.signInWithPopup(provider);
   };
 
   // Signs-out of Friendly Chat.
