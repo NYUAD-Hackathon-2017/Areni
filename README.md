@@ -12,6 +12,9 @@ Bridging the education gap for resettled refugees.
 - Erin Hoffman, PhD Student, University of Washington, USA
 - Mike Clarke, Director, HiL, Lebanon
 
+<br />
+<br />
+
 *Google Accounts:* <br />
 Laica M. <br />
 whiteostrich247@gmail.com <br />
