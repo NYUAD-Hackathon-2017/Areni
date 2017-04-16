@@ -80,7 +80,7 @@ angular.module('Areni.sessions', ['ngRoute'])
       "username": "whiteostrich247",
       "img": "https://randomuser.me/api/portraits/women/45.jpg",
       "subj": "History",
-      "Lat": 47.6074692,
+      "Lat": 47.6194692,
       "Lng": -122.3623953,
       "date": "Friday",
       "loc": "Ambrosia Cafe",
@@ -240,7 +240,7 @@ angular.module('Areni.sessions', ['ngRoute'])
       "username": "yellowwolf450",
       "img": "https://randomuser.me/api/portraits/men/12.jpg",
       "subj": "Math",
-      "Lat": 47.6074692,
+      "Lat": 47.6194692,
       "Lng": -122.3623953,
       "date": "Saturday",
       "loc": "Ambrosia Cafe",
@@ -400,7 +400,7 @@ angular.module('Areni.sessions', ['ngRoute'])
       "username": "ticklishfish609",
       "img": "https://randomuser.me/api/portraits/women/6.jpg",
       "subj": "English",
-      "Lat": 47.6074692,
+      "Lat": 47.6194692,
       "Lng": -122.3623953,
       "date": "Monday",
       "loc": "Ambrosia Cafe",
@@ -519,7 +519,7 @@ angular.module('Areni.sessions', ['ngRoute'])
 
   $scope.initMarkers = function() {
     var marker, i;
-    var image = 'http://www.everymanministries.com/Content/shared/images/usericon.png';
+    var image = '/img/marker.png';
 
     for (i = 0; i < $scope.teachers.length; i++) {
       marker = new google.maps.Marker({
@@ -538,6 +538,16 @@ angular.module('Areni.sessions', ['ngRoute'])
         }
       })(marker, i));
     }
+
+    // location marker
+    marker = new google.maps.Marker({
+      position: {
+        lat: 47.6070031,
+        lng: -122.3204234
+      },
+      map: map,
+      icon: '/img/location.png'
+    });
   }
 
   $scope.onSuccess =  function(position) {

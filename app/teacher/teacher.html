@@ -38,15 +38,19 @@
         <h1>Session details</h1>
       </div>
 
-      <p class="lead">
-        <ul>
-          <li>Location: {{ teacher.loc }}</li>
-          <li>Day: {{ teacher.date }}</li>
-          <li>Time: {{ teacher.time }}</li>
-        </ul>
-      </p>
 
-      <a href="#" class="btn btn-primary bt-lg">Confirm Appointment</a>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3>{{ teacher.subj }}</h3>
+        </div>
+        <div class="panel-body">
+          <h3>
+            <a href="#!/teacher/{{teacher.username}}/session" class="btn btn-primary btn-lg pull-right">Confirm Appointment</a>
+            <small><span class="glyphicon glyphicon-calendar"></span> {{ teacher.date }} at {{ teacher.time }}</small><br/>
+            <small><span class="glyphicon glyphicon-map-marker"></span> {{teacher.loc}} ({{teacher.dist}} miles away)</small>
+          </h3>
+        </div>
+      </div>
 
     </div>
 
@@ -56,6 +60,10 @@
       </div>
 
       <div class="panel panel-default" ng-repeat="t in teachers | limitTo: 5">
+        <div class="panel-heading">
+          <h3>{{ teacher.subj }}</h3>
+
+        </div>
         <div class="panel-body">
           <h3>
             <a href="#!/teacher/{{teacher.username}}/session" class="btn btn-primary btn-lg pull-right">View Session</a>
