@@ -87,7 +87,7 @@ angular.module('Areni.sessions', ['ngRoute'])
       "language": [
         "English" ,"Arabic"
       ],
-      "stars": 4,
+      "stars": 5,
       "time": "7:15 PM",
       "dist": 0.9
     },
@@ -199,7 +199,7 @@ angular.module('Areni.sessions', ['ngRoute'])
       "language": [
         "English", "Spanish"
       ],
-      "stars": 5,
+      "stars": 4,
       "time": "5:00 PM",
       "dist": 0.1
     },
