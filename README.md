@@ -1,4 +1,4 @@
-# Areni
+# Areni / أرني "Show Me"
 Bridging the education gap for resettled refugees.
 
 ## Students:
