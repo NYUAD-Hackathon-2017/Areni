@@ -1,8 +1,18 @@
-Areni: Bridging the education gap for resettled refugees.
+# Areni
+Bridging the education gap for resettled refugees.
 
+## Students:
+- Mariam Garba, University Of Ilorin, Nigeria 
+- Zach Sorenson, Stanford University, USA
+- Shaikha Aldoukhi, Khalifa university, UAE
+- Sana Khiari, INSAT, Tunisia 
 
-Google Accounts:
+## Mentors:
+- Samr Samir Ali, Teaching and Research Assistant, Abu Dhabi University, UAE
+- Erin Hoffman, PhD Student, University of Washington, USA
+- Mike Clarke, Director, HiL, Lebanon
 
-Laica M.
-whiteostrich247@gmail.com
-wifi password
+*Google Accounts:* <br />
+Laica M. <br />
+whiteostrich247@gmail.com <br />
+wifi password 
