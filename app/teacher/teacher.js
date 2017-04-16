@@ -533,11 +533,11 @@ angular.module('Areni.teacher', ['ngRoute'])
     this.userPic = document.getElementById('user-pic');
     this.userName = document.getElementById('user-name');
     this.signInButton = document.getElementById('sign-in');
-    this.signOutButton = document.getElementById('sign-out');
+    // this.signOutButton = document.getElementById('sign-out');
 
     // Saves message on form submit.
     this.messageForm.addEventListener('submit', this.saveMessage.bind(this));
-    this.signOutButton.addEventListener('click', this.signOut.bind(this));
+    // this.signOutButton.addEventListener('click', this.signOut.bind(this));
     this.signInButton.addEventListener('click', this.signIn.bind(this));
 
     // Toggle for the button.

@@ -12,7 +12,7 @@
         <div class="col-sm-8">
           <h2>
             <small>Hi, I'm</small>
-            {{ teacher.name }}
+            <a href="#!/teacher/{{teacher.username}}">{{ teacher.name }}</a>
           </h2>
           <p>I can help with <b>{{teacher.subj}}</b></p>
           <p>I speak <b ng-repeat="lang in teacher.language"><span ng-if="$index == teacher.language.length-1 && teacher.language.length > 1">and</span> {{lang}}<span ng-if="$index < teacher.language.length-2">, </span>  </b></p>
@@ -77,7 +77,7 @@
     </div>
 
 
-    <div class="col-lg-4 col-md-6">
+    <div class="col-lg-4 col-md-6" ng-if="session">
       <div class="panel panel-primary">
         <div class="panel-heading">
           <h3>Chat with me <span class="pull-right glyphicon glyphicon-comment"></span></h3>
